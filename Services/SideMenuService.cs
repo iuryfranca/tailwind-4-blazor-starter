@@ -8,7 +8,7 @@ namespace Flowbite.Services
 
         public string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-        public string? BodyCssClass => collapseNavMenu ? "w-full" : "sm:ml-[256px]";
+        public string? BodyCssClass => collapseNavMenu ? "flex" : "grid grid-cols-[256px_1fr]";
 
         public event Action? OnChange;
 

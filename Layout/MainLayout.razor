@@ -2,16 +2,20 @@
 @using Flowbite.Services
 
 <div class="@SideMenuService.BodyCssClass">
-  <NavMenu />
-  <div class="min-h-screen bg-gray-100 dark:bg-gray-800 sm:p-8 p-4">@Body</div>
+   <div>
+      <NavMenu />
+   </div>
+   <div class="min-h-screen bg-gray-100 dark:bg-gray-800 sm:p-8 p-4 w-full">@Body</div>
 </div>
 
-@code {
-  [Inject]
-  public SideMenuService SideMenuService { get; set; }
 
-  protected override void OnInitialized()
-  {
-    SideMenuService.OnChange += StateHasChanged;
-  }
+@code {
+   [Inject]
+   public SideMenuService SideMenuService { get; set; }
+
+   protected override void OnInitialized()
+   {
+      SideMenuService.OnChange += StateHasChanged;
+      StateHasChanged();
+   }
 }
