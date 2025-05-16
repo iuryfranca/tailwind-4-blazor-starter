@@ -10,7 +10,7 @@
 
   <div class="flex flex-col lg:flex-row gap-4">
     <div
-      class="bg-white w-3xl rounded-lg shadow-sm dark:bg-gray-800 p-4 md:p-6 border-2 border-gray-200 dark:border-gray-700">
+      class="bg-white rounded-lg shadow-sm dark:bg-gray-800 p-4 md:p-6 border-2 border-gray-200 dark:border-gray-700">
       <div class="grid grid-cols-2">
         <dl class="flex items-center">
           <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">Money spent:</dt>
@@ -747,8 +747,10 @@
 
   protected override async Task OnAfterRenderAsync(bool firstRender)
   {
-
     await JSRuntime.InvokeVoidAsync("initDataCharts");
-
+    if (firstRender)
+    {
+      await JSRuntime.InvokeVoidAsync("initFlowbite");
+    }
   }
 }
